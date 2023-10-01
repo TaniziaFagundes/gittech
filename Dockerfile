@@ -1,4 +1,4 @@
-FROM docker.io/library/node:20.0.0-buster as builder
+FROM 20.8-buster AS build
 WORKDIR /build
 
 COPY package.json package.json
