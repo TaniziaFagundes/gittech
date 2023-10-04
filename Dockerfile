@@ -1,5 +1,5 @@
 FROM node:20.8.0-buster AS build
-WORKDIR /build
+WORKDIR /app
 
 COPY package.json package-lock.json ./
 RUN npm install
