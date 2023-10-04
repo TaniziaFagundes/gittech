@@ -35,7 +35,4 @@
       "last 1 safari version"
     ]
   }
-  "engines": {
-    "node": "20.8.0",
-  }
 }
