@@ -35,8 +35,19 @@ pipeline {
         '''
       }
     }
+    stage('Test') { 
+      steps {
+        sh 'npm test' 
+      }
+    }
   }
   post {
+    success {
+      echo 'Build successful!'
+    }
+    failure {
+      echo 'Build failed!'
+    }
     always {
       sh 'docker logout'
     }
