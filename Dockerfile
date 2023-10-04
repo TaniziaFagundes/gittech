@@ -1,4 +1,4 @@
-FROM node:20.8-buster AS build
+FROM node:20.8.0-buster AS build
 WORKDIR /build
 
 COPY package.json package.json
