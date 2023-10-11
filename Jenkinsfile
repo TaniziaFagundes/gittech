@@ -17,14 +17,16 @@ pipeline {
         sh "node --version"
       }
     }
-    stage('Test') { 
-      steps {
-        sh 'npm test' 
-      }
-    }
+    
     stage('Build') {
       steps {
         sh 'docker build -t $IMAGE_NAME:$IMAGE_TAG .'
+      }
+    }
+    
+     stage('Test') { 
+      steps {
+        sh 'npm test' 
       }
     }
   }
