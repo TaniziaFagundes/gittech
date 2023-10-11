@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from "react";
 
+/* TESTANDO DISPARO DE JOB A PARTIR DE UM COMMIT: JENKINS CONFIGURADO PARA CONSULTAR O SCM A CADA 5MIN*/
+
 export const fahrenheitToCelsius = (fahrenheit) => {
   return ((fahrenheit - 32) * 5) / 9;
 };
