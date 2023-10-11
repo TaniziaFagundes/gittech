@@ -11,6 +11,8 @@ RUN npm run build
 FROM node:20.8.0
 WORKDIR /app
 COPY --from=build /app/build ./public
+COPY --from=build /app/package.json /app/package-lock.json ./
+COPY --from=build /app/node_modules ./node_modules
 RUN npm install -g serve
 EXPOSE 5000
 CMD ["serve", "-s", "public", "-l", "5000"]
