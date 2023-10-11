@@ -49,7 +49,7 @@ pipeline {
     }  
     stage('Test') { 
       steps {
-        sh 'npm test' 
+        sh 'docker run registry.heroku.com/gittech/web sh -c "cd /app && npm test"' 
       }
     }
   }
