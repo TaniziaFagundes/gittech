@@ -24,8 +24,6 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'docker stop $(docker ps -aq)'
-        sh 'docker rm $(docker ps -aq)'
         sh 'docker build -t $IMAGE_NAME:$IMAGE_TAG .'
       }
     }
