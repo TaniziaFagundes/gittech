@@ -24,6 +24,16 @@ pipeline {
       }
     }
     
+    stage('Update Image') {
+      when {
+        branch 'main'
+      }
+      steps {
+        sh 'docker build -t $IMAGE_NAME:$IMAGE_TAG .'
+        sh 'docker push $IMAGE_NAME:$IMAGE_TAG'
+      }
+    }
+
      stage('Test') { 
       steps {
         sh 'npm test' 
