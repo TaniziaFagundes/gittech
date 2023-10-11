@@ -37,6 +37,8 @@ pipeline {
     }
     stage('Test') { 
       steps {
+        sh 'node -v'
+        sh 'nvm use 20'
         sh 'npm test' 
       }
     }
