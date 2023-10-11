@@ -23,11 +23,8 @@ pipeline {
         sh 'docker build -t $IMAGE_NAME:$IMAGE_TAG .'
       }
     }
-    
+
     stage('Update Image') {
-      when {
-        branch 'main'
-      }
       steps {
         sh 'docker build -t $IMAGE_NAME:$IMAGE_TAG .'
         sh 'docker push $IMAGE_NAME:$IMAGE_TAG'
