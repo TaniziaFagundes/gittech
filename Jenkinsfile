@@ -11,7 +11,7 @@ pipeline {
     IMAGE_TAG = 'latest'
   }
   stages {
-    tage('Node') {
+    stage('Node') {
       steps {
         sh "which node"
         sh "node --version"
