@@ -24,6 +24,7 @@ pipeline {
     }
     stage('Build') {
       steps {
+        sh 'docker rm $(docker ps -aq)'
         sh 'docker build -t $IMAGE_NAME:$IMAGE_TAG .'
       }
     }
