@@ -38,9 +38,14 @@ pipeline {
         '''
       }
     }
+    stage('Node') {
+         steps {
+           sh "which node"
+           sh "node --version"
+         }
+      }
     stage('Test') { 
       steps {
-        sh 'node -v'
         sh 'npm test' 
       }
     }
