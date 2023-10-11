@@ -3,6 +3,9 @@ pipeline {
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
+  tools {
+    nodejs "meuNode"
+  }
   environment {
     HEROKU_API_KEY = credentials('heroku-api-key')
     IMAGE_NAME = 'taniziafagundes/gittech'
