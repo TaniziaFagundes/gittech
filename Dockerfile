@@ -15,7 +15,7 @@ COPY --from=build /app/package.json /app/package-lock.json ./
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/src ./src
 RUN npm install -g serve
-EXPOSE 5000
-CMD ["serve", "-s", "public", "-l", "5000"]
+EXPOSE 8000
+CMD ["serve", "-s", "public", "-l", "8000"]
 
 # tive um problema pois o container docker criado não estava copiando os arquivos necessários como o package.json
