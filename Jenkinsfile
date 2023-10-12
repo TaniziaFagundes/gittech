@@ -29,7 +29,7 @@ pipeline {
     }
     stage('Test') { 
       steps {
-        sh 'docker run registry.heroku.com/gittech/web sh -c "cd /app && npm test -- --watchAll=false --coverage"' 
+        sh 'docker run $IMAGE_NAME:$IMAGE_TAG sh -c "cd /app && npm test -- --watchAll=false --coverage"' 
       }
     }
     stage('Login') {
