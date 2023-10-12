@@ -27,6 +27,11 @@ pipeline {
         sh 'docker build -t $IMAGE_NAME:$IMAGE_TAG .'
       }
     }
+    stage('Test') { 
+      steps {
+        sh 'docker run registry.heroku.com/gittech/web sh -c "cd /app && npm test -- --watchAll=false --coverage"' 
+      }
+    }
     stage('Login') {
       steps {
         sh 'echo $HEROKU_API_KEY | docker login --username=_ --password-stdin registry.heroku.com'
@@ -47,11 +52,6 @@ pipeline {
         '''
       }
     }  
-    stage('Test') { 
-      steps {
-        sh 'docker run registry.heroku.com/gittech/web sh -c "cd /app && npm test -- --watchAll=false --coverage"' 
-      }
-    }
   }
   post {
     success {
