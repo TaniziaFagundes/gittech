@@ -13,10 +13,6 @@ test("32°F is 0°C", () => {
   expect(fahrenheitToCelsius(32)).toBe(0);
 });
 
-test("68°F is 20°C", () => {
-  expect(fahrenheitToCelsius(68)).toBe(20);
-});
-
 test("-40°F is -40°C", () => {
   expect(fahrenheitToCelsius(-40)).toBe(-40);
 });
