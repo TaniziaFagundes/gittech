@@ -18,7 +18,7 @@ test("-40°F is -40°C", () => {
 });
 
 test("212°F is 100°C", () => {
-  expect(fahrenheitToCelsius(212)).toBe(0);
+  expect(fahrenheitToCelsius(212)).toBe(100);
 });
 
 test("0°C is 32°F", () => {
