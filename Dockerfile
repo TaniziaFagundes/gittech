@@ -16,6 +16,6 @@ COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/src ./src
 RUN npm install -g serve
 EXPOSE 5000
-CMD ["npm", "start", "--port", "$PORT"]
+CMD ["npm", "start"]
 
 # tive um problema pois o container docker criado não estava copiando os arquivos necessários como o package.json
