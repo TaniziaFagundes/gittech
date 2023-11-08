@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Integração Contínua com Jenkins, Docker e Heroku
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O projeto foi iniciado com uma aplicação simples de react somente para ser usada na integração.
 
-## Available Scripts
+## Benefícios da integração contínua
 
-In the project directory, you can run:
+- Indentificação rápida de problemas no código.
+- Redução de erros e bugs em produção
+- Melhoria na qualidade do código
+- Aumento da eficiência do desenvolvimento
+- Redução de custos e tempo de desenvolvimento
 
-### `npm start`
+## Tecnologias utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [X] React
+- [X] npm
+- [X] Docker
+- [X] Heroku
+- [X] Jenkins
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Etapas do pipeline
 
-### `npm test`
+1. Contrução da image docker
+   
+     O arquivo Dockerfile gera uma image docker que ao rodar o pipeline é gerado um container para o deploy no heroku simplificando assim o deploy da aplicação.
+      Na hora da implementação ocorreu um erro no log do jenkins informando que o node version estava em conflito, uma forma de resolver é adicionar a versão do node no dockerfile, jenkinsfile e também no jenkins.
+   
+2. Login do Heroku e envio da image docker para o Heroku e liberação da image docker no heroku
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   Nessa etapa além de adicionar o stage de login e registro do heroku no pipeline, também foi necessário adicionar o token do Heroku nas configurações do Jenkins
+   ***```enviroment { HEROKU_API_KEY = credentials('heroku-api-key')```***
+   
+   Gere o heroku-api-key acessando no Heroku o ```account-settings > API key```
+   
+   Adicione o token gerado no jenkins em Painel de ```controle > Gerenciar Jenkins > Credentials``` com o nome heroku-api-key
+   
 
-### `npm run build`
+4. Executa os testes unitários do aplicatio React no container Docker
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  O teste unitário precisa ser feito dentro do container 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+6. Geração do relatório de cobertura de testes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
