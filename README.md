@@ -38,7 +38,7 @@ O projeto foi iniciado com uma aplicação simples de react somente para ser usa
  
 4. Executa os testes unitários do aplicatio React no container Docker
 
-  O teste unitário precisa ser feito dentro do container 
+   O teste unitário precisa ser feito dentro do container 
 
 5. Geração do relatório de cobertura de testes
 
