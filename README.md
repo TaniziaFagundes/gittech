@@ -25,7 +25,7 @@ O projeto foi iniciado com uma aplicação simples de react somente para ser usa
      O arquivo Dockerfile gera uma image docker que ao rodar o pipeline é gerado um container para o deploy no heroku simplificando assim o deploy da aplicação.
       Na hora da implementação ocorreu um erro no log do jenkins informando que o node version estava em conflito, uma forma de resolver é adicionar a versão do node no dockerfile, jenkinsfile e também no jenkins.
    
-2. Login do Heroku e envio da image docker para o Heroku e liberação da image docker no heroku
+2. Login do Heroku e envio da image docker para o Heroku 
 
    Nessa etapa além de adicionar o stage de login e registro do heroku no pipeline, também foi necessário adicionar o token do Heroku nas configurações do Jenkins
    ***```enviroment { HEROKU_API_KEY = credentials('heroku-api-key')```***
@@ -34,12 +34,13 @@ O projeto foi iniciado com uma aplicação simples de react somente para ser usa
    
    Adicione o token gerado no jenkins em Painel de ```controle > Gerenciar Jenkins > Credentials``` com o nome heroku-api-key
    
-
+3. Libera a image docker no heroku
+ 
 4. Executa os testes unitários do aplicatio React no container Docker
 
   O teste unitário precisa ser feito dentro do container 
 
-6. Geração do relatório de cobertura de testes
+5. Geração do relatório de cobertura de testes
 
 
 
