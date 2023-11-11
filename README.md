@@ -2,6 +2,8 @@
 
 O projeto foi iniciado com uma aplicação simples de react somente para ser usada na integração.
 
+[Video de apresentação para a disciplina de Gerência de Configuração](https://www.youtube.com/watch?v=_lcHn7Z3xig)
+
 ## Benefícios da integração contínua
 
 - Indentificação rápida de problemas no código.
@@ -41,6 +43,8 @@ O projeto foi iniciado com uma aplicação simples de react somente para ser usa
    O teste unitário precisa ser feito dentro do container 
 
 5. Geração do relatório de cobertura de testes
+
+
 
 
 
